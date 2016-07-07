@@ -1,21 +1,26 @@
 package org.bhc.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDateTime;
 
 @Controller
 public class HomeController {
 
+    Logger logger = LoggerFactory.getLogger(HomeController.class);
+
     @RequestMapping("/")
-    String index() {
+    String landingPage() {
         return "index";
     }
 
-    @RequestMapping("/membership")
-    String membership() {
+    @RequestMapping(value = "/membership")
+    String membershipPage() {
         return "membership";
     }
 
