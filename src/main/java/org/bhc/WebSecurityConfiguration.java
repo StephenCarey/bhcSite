@@ -28,19 +28,19 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                             "/img/**",
                             "favicon.ico").permitAll()
                     .anyRequest().authenticated()
-                .and()
+                    .and()
                 .formLogin()
-                    .loginPage("/login").failureUrl("/login?error").permitAll()
-                .and()
+                    .loginPage("/login")
+                    .permitAll()
+                    .and()
                 .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/").permitAll();
+                    .permitAll();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+                .withUser("user").password("password").roles("USER", "ADMIN");
     }
 }
