@@ -6,7 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-
 public interface  WalkRepository  extends JpaRepository<Walk, Long> {
 
     List<Walk> findByName(String name);
