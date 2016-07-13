@@ -4,6 +4,7 @@ import org.bhc.persistance.models.Walk;
 import org.bhc.persistance.repository.WalkRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,8 @@ import java.util.List;
 public class HomeController {
 
     Logger logger = LoggerFactory.getLogger(HomeController.class);
+
+    @Autowired
     private WalkRepository repository;
 
     @RequestMapping("/")
@@ -39,7 +42,7 @@ public class HomeController {
         List<Walk> allWalks = (List<Walk>)repository.findAll();
 
         for (Walk currentWalk : allWalks){
-            logger.info("Walk found: " + currentWalk.name);
+            logger.info("Walk found: " + currentWalk.getName());
         }
 
         return "calendar";
