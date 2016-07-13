@@ -1,4 +1,4 @@
-package org.bhc.controllers;
+package org.bhc.web.controllers;
 
 import org.bhc.WebsiteApplication;
 import org.junit.Before;
