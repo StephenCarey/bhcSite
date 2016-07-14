@@ -1,6 +1,5 @@
 package org.bhc.web.controllers;
 
-import org.bhc.persistance.models.Walk;
 import org.bhc.persistance.repository.WalkRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 @Controller
 public class HomeController {
@@ -35,16 +32,8 @@ public class HomeController {
     }
 
     @RequestMapping("/calendar")
-    String calendar() {
-
-        repository.save(new Walk("test", "some new walk"));
-
-        List<Walk> allWalks = (List<Walk>)repository.findAll();
-
-        for (Walk currentWalk : allWalks){
-            logger.info("Walk found: " + currentWalk.getName());
-        }
-
+    String calendar(Model model) {
+        model.addAttribute("walks", repository.findAll());
         return "calendar";
     }
 
