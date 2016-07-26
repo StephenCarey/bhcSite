@@ -24,11 +24,6 @@ public class AdminController {
         return "admin/index";
     }
 
-    @RequestMapping("/test")
-    String testPage() {
-        return "admin/test";
-    }
-
     @RequestMapping("/addwalk")
     String addWalkPage(Model model)
     {
