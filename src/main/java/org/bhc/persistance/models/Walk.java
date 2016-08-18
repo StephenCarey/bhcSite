@@ -3,6 +3,9 @@ package org.bhc.persistance.models;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * A POJO to represent a walk/hike
+ */
 @Entity
 public class Walk {
 
@@ -20,17 +23,31 @@ public class Walk {
     @Column(name = "WALKDATE")
     private Date walkDate;
 
+    /**
+     * Default constructor for an empty walk object
+     */
     public Walk() {
-
+        this.name = "";
+        this.description = "";
     }
 
+    /**
+     * Create a basic walk object
+     * @param name The name of the walk
+     * @param description A meaningful description of the walk
+     */
     public Walk(String name, String description){
         this.name = name;
         this.description = description;
         this.walkDate = new Date();
     }
 
-
+    /**
+     * Create a full walk object
+     * @param name The name of the walk
+     * @param description A meaningful description of the walk
+     * @param walkDate The date on which the walk will take place
+     */
     public Walk(String name, String description, Date walkDate){
         this.name = name;
         this.description = description;

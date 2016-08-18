@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(value= HttpStatus.BAD_REQUEST)
 public class BadRequestException extends RuntimeException {
 
-    Logger logger = LoggerFactory.getLogger(BadRequestException.class);
+    final Logger logger = LoggerFactory.getLogger(BadRequestException.class);
 
 
     public BadRequestException() {
